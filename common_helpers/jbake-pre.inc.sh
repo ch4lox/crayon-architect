@@ -27,7 +27,7 @@ if [ -z "$JBAKE_HOME" ]; then
 		fi
 		echo "Downloading and extracting http://jbake.org/files/jbake-${JBAKE_GET_VERSION}-bin.zip...";
 		wget -O "${CRAYON_ARCHITECT_DIR}/cache/jbake/jbake-${JBAKE_GET_VERSION}.zip" "http://jbake.org/files/jbake-${JBAKE_GET_VERSION}-bin.zip"
-		unzip -d "${CRAYON_ARCHITECT_DIR}/cachejbake" "${CRAYON_ARCHITECT_DIR}/cache/jbake/jbake-${JBAKE_GET_VERSION}.zip"
+		unzip -d "${CRAYON_ARCHITECT_DIR}/cache/jbake" "${CRAYON_ARCHITECT_DIR}/cache/jbake/jbake-${JBAKE_GET_VERSION}.zip"
 	fi
 	if [ ! -f "${CRAYON_ARCHITECT_DIR}/cache/jbake/jbake-${JBAKE_GET_VERSION}/bin/jbake" ]; then
 		echo "Unable to find jbake binary at ${CRAYON_ARCHITECT_DIR}/cache/jbake/jbake-${JBAKE_GET_VERSION}/bin/jbake!"

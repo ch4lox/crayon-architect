@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+# This script expects:
+# DEPLOY_BUILD_OUTPUT_DIR
+# DEPLOY_REPO = git repo to push to
+# DEPLOY_BRANCH (optional) = DEPLOY_REPO branch to push to
+
 # exit if any command fails
 set -e
 
@@ -39,7 +44,7 @@ else
 fi
 
 echo "Rsyncing changes including deletions from '${DEPLOY_BUILD_OUTPUT_DIR}' to '${TEMP_DIR}'..."
-rsync -av --del --exclude='/.git' --exclude='/README.md' --exclude='CNAME' "${DEPLOY_BUILD_OUTPUT_DIR}" "${TEMP_DIR}"
+rsync -av --del --exclude='/.git' --exclude='/README.md' --exclude='CNAME' "${DEPLOY_BUILD_OUTPUT_DIR}/" "${TEMP_DIR}"
 
 cd "${TEMP_DIR}"
 
