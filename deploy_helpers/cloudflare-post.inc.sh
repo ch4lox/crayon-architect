@@ -7,7 +7,7 @@
 
 if [ "$CRAYON_CMD_DEPLOY_SUCCESS" = "false" ]; then
 	echo "CRAYON_CMD_DEPLOY_SUCCESS is false, so skipping.";
-fi
+else
 	if [ -z "$DEPLOY_CLOUDFLARE_ID" ]; then
 		echo "DEPLOY_CLOUDFLARE_ID is not set!"
 		echo "Also make sure you specify DEPLOY_CLOUDFLARE_EMAIL and DEPLOY_CLOUDFLARE_KEY!"
@@ -22,7 +22,7 @@ fi
 		fi
 
 		if [ ! -z "$DEPLOY_CLOUDFLARE_KEY" ] && [ ! -z "$DEPLOY_CLOUDFLARE_EMAIL" ]; then
-		curl -X DELETE "https://api.cloudflare.com/client/v4/zones/${DEPLOY_CLOUDFLARE_ID}/purge_cache" -H "X-Auth-Email: ${DEPLOY_CLOUDFLARE_EMAIL}" -H "X-Auth-Key: ${DEPLOY_CLOUDFLARE_KEY}" -H "Content-Type: application/json" --data '{"purge_everything":true}'
+			curl -X DELETE "https://api.cloudflare.com/client/v4/zones/${DEPLOY_CLOUDFLARE_ID}/purge_cache" -H "X-Auth-Email: ${DEPLOY_CLOUDFLARE_EMAIL}" -H "X-Auth-Key: ${DEPLOY_CLOUDFLARE_KEY}" -H "Content-Type: application/json" --data '{"purge_everything":true}'
 		fi
 	fi
 fi
