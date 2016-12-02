@@ -12,11 +12,11 @@ set -e
 # $CRAYON_ARCHITECT_DIR = the directory of the crayon-architect tools
 # $CRAYON_PROJECT_DIR = the directory to run the build tools in - uses pwd if undefined, this will be the working directory
 
-if [ -z $DEPLOY_BUILD_OUTPUT_DIR ]; then
+if [ -z "$DEPLOY_BUILD_OUTPUT_DIR" ]; then
 	echo "DEPLOY_BUILD_OUTPUT_DIR is not specified!"
 	exit 1
 fi
-if [ -z $DEPLOY_REPO ]; then
+if [ -z "$DEPLOY_REPO" ]; then
 	echo "DEPLOY_REPO is not specified!"
 	exit 1
 fi
@@ -48,9 +48,18 @@ rsync -av --del --exclude='/.git' --exclude='/README.md' --exclude='CNAME' "${DE
 
 cd "${TEMP_DIR}"
 
+echo "Syncing changes to ${DEPLOY_REPO} ${DEPLOY_BRANCH}"
 git add --all .
-git commit -m "Deployed using crayon-architect by ${USER} on $(hostname -s) at $(date)"
-git -c push.default=simple push
+if git commit -m "Deployed using crayon-architect by ${USER} on $(hostname -s) at $(date)"; then
+	git -c push.default=simple push
+	
+	cd - > /dev/null
+	rm -rf "${TEMP_DIR}"
+else
+	cd - > /dev/null
+	rm -rf "${TEMP_DIR}"
+	
+	echo "Nothing appears to have changed."
+	exit 1;
+fi
 
-cd -
-rm -rf "${TEMP_DIR}"
