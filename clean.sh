@@ -1,5 +1,17 @@
 #!/usr/bin/env bash
-
+# Purpose:
+# This script runs the "CLEAN" action - Used to clean any "output" build directories from the "BUILD" step
+#
+# Environment Variables Used:
+# CRAYON_PRE_CLEAN = An array of scripts to source "pre" the action
+# CRAYON_PRE_CLEAN_SKIP (modifable by included scripts) = If this is set, skip the next pre script(s)
+# CRAYON_CMD_CLEAN = The actual command to run to perform the action
+# CRAYON_CMD_CLEAN_SUCCESS = Set to true or false depending on a 0 (true) or non-zero (false) exit status from CRAYON_CMD_CLEAN
+# CRAYON_CMD_CLEAN_SKIP (modifable by included scripts) = If this is set, skip the action
+# CRAYON_POST_CLEAN = An array of scripts to source "post" the action
+# CRAYON_POST_CLEAN_SKIP (modifable by included scripts) = If this is set, skip the next post script(s)
+#
+###########################################################################
 # exit if any command fails
 set -e
 

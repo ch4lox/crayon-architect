@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
-
+# Purpose:
+# This script deletes the jbake cache and build_output directories
+#
+# Expected files:
+# $CRAYON_PROJECT_DIR/jbake.properties - the jbake configuration for the project, this is processed to find the correct directories
+#
+###########################################################################
 # exit if any command fails
 set -e
 
-# Available variables are:
 # $CRAYON_ARCHITECT_DIR = the directory of the crayon-architect tools
 # $CRAYON_PROJECT_DIR = the directory to run the build tools in - uses pwd if undefined, this will be the working directory
 

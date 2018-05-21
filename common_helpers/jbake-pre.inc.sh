@@ -1,16 +1,25 @@
+# Purpose:
 # This include script tries to make sure JBAKE_HOME is available
+# and if not, it downloads jbake to CRAYON_ARCHITECT_DIR/cache/jbake,
+# extracts it, and sets JBAKE_HOME
 # 
-# If JBAKE_HOME is unset, it downloads a copy into CRAYON_ARCHITECT_DIR,
-# extracts it, and then sets JBAKE_HOME for use by other scripts
+# Expected Software:
+# wget
+# unzip
+# jbake (optional, downloads if necessary)
 #
-# if the environment variable JBAKE_VERSION is unset, we pick a version
+# Expected Environment Variables:
+# JBAKE_HOME (optional) = a variable holding the location of the jbake installation
+# 
+# Modifiable Environment Variables:
+# JBAKE_HOME = a variable holding the location of the jbake installation
+#
+# The version of jbake to download if we don't have a JBAKE_HOME
 if [ -z "$JBAKE_GET_VERSION" ]; then
 	export JBAKE_GET_VERSION=2.5.0
 fi
-
+#
 ###########################################################################
-
-# Available variables are:
 # $CRAYON_ARCHITECT_DIR = the directory of the crayon-architect tools
 # $CRAYON_PROJECT_DIR = the directory to run the build tools in - uses pwd if undefined, this will be the working directory
 

@@ -1,14 +1,21 @@
 #!/usr/bin/env bash
-
-# This script expects:
-# DEPLOY_BUILD_OUTPUT_DIR
+# Purpose:
+# This script pushes a directory to a branch on a git repository
+#
+# Required Softwared:
+# git
+# rsync
+#
+# Expected Environment Variables
+# DEPLOY_BUILD_OUTPUT_DIR = The directory to copy files from
 # DEPLOY_REPO = git repo to push to
-# DEPLOY_BRANCH (optional) = DEPLOY_REPO branch to push to
-
+# DEPLOY_BRANCH (optional) = the git branch to push to
+# DEPLOY_SSH_PRIVATE_KEY (optional) = the SSH key required to push - this may be all one line, it will be properly split beforehand
+#
+###########################################################################
 # exit if any command fails
 set -e
 
-# Available variables are:
 # $CRAYON_ARCHITECT_DIR = the directory of the crayon-architect tools
 # $CRAYON_PROJECT_DIR = the directory to run the build tools in - uses pwd if undefined, this will be the working directory
 

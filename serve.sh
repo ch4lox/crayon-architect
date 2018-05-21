@@ -1,5 +1,17 @@
 #!/usr/bin/env bash
-
+# Purpose:
+# This script runs the "SERVE" action - Used to do a "run a server for testing" step if the build tool offers it
+#
+# Environment Variables Used:
+# CRAYON_PRE_SERVE = An array of scripts to source "pre" the action
+# CRAYON_PRE_SERVE_SKIP (modifable by included scripts) = If this is set, skip the next pre script(s)
+# CRAYON_CMD_SERVE = The actual command to run to perform the action
+# CRAYON_CMD_SERVE_SUCCESS = Set to true or false depending on a 0 (true) or non-zero (false) exit status from CRAYON_CMD_SERVE
+# CRAYON_CMD_SERVE_SKIP (modifable by included scripts) = If this is set, skip the action
+# CRAYON_POST_SERVE = An array of scripts to source "post" the action
+# CRAYON_POST_SERVE_SKIP (modifable by included scripts) = If this is set, skip the next post script(s)
+#
+###########################################################################
 # exit if any command fails
 set -e
 

@@ -1,5 +1,17 @@
 #!/usr/bin/env bash
-
+# Purpose:
+# This script runs the "DEPLOY" action - Used to do the push / copy / etc step to get the build up
+#
+# Environment Variables Used:
+# CRAYON_PRE_DEPLOY = An array of scripts to source "pre" the action
+# CRAYON_PRE_DEPLOY_SKIP (modifable by included scripts) = If this is set, skip the next pre script(s)
+# CRAYON_CMD_DEPLOY = The actual command to run to perform the action
+# CRAYON_CMD_DEPLOY_SUCCESS = Set to true or false depending on a 0 (true) or non-zero (false) exit status from CRAYON_CMD_DEPLOY
+# CRAYON_CMD_DEPLOY_SKIP (modifable by included scripts) = If this is set, skip the action
+# CRAYON_POST_DEPLOY = An array of scripts to source "post" the action
+# CRAYON_POST_DEPLOY_SKIP (modifable by included scripts) = If this is set, skip the next post script(s)
+#
+###########################################################################
 # exit if any command fails
 set -e
 

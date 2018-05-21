@@ -1,6 +1,15 @@
-# This include script makes an API call to cloudflare using curl to purge CDN caches
-
-# Available variables are:
+# Purpose:
+# This include script makes an API call to cloudflare to purge CDN caches
+#
+# Expected Software:
+# curl
+#
+# Expected Environment Variables:
+# DEPLOY_CLOUDFLARE_ID = The cloudflare zone id
+# DEPLOY_CLOUDFLARE_EMAIL = The cloudflare authorization email address
+# DEPLOY_CLOUDFLARE_KEY = The cloudflare authorization key
+#
+###########################################################################
 # $CRAYON_ARCHITECT_DIR = the directory of the crayon-architect tools
 # $CRAYON_PROJECT_DIR = the directory to run the build tools in - uses pwd if undefined, this will be the working directory
 # $CRAYON_CMD_DEPLOY_SUCCESS = true or false if the command completed successfully

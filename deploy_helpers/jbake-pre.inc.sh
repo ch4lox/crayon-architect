@@ -1,9 +1,18 @@
 #!/usr/bin/env bash
-
+# Purpose:
+# This script sets some environment variables based on the jbake configuration, to be used by other parts of the build
+#
+# Expected files:
+# $CRAYON_PROJECT_DIR/jbake.properties - the jbake configuration for the project, this is processed to find the correct directories
+#
+# Modifiable Environment Variables:
+# CRAYON_PRE_DEPLOY_SKIP = skip the following pre deploy sripts
+# CRAYON_CMD_DEPLOY_SKIP = skip the deploy script
+#
+###########################################################################
 # exit if any command fails
 set -e
 
-# Available variables are:
 # $CRAYON_ARCHITECT_DIR = the directory of the crayon-architect tools
 # $CRAYON_PROJECT_DIR = the directory to run the build tools in - uses pwd if undefined, this will be the working directory
 

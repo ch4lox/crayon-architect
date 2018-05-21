@@ -1,5 +1,17 @@
 #!/usr/bin/env bash
-
+# Purpose:
+# This script runs the "BUILD" action - This step does the "static site build" step, merging the content and template files
+#
+# Environment Variables Used:
+# CRAYON_PRE_BUILD = An array of scripts to source "pre" the action
+# CRAYON_PRE_BUILD_SKIP (modifable by included scripts) = If this is set, skip the next pre script(s)
+# CRAYON_CMD_BUILD = The actual command to run to perform the action
+# CRAYON_CMD_BUILD_SUCCESS = Set to true or false depending on a 0 (true) or non-zero (false) exit status from CRAYON_CMD_BUILD
+# CRAYON_CMD_BUILD_SKIP (modifable by included scripts) = If this is set, skip the action
+# CRAYON_POST_BUILD = An array of scripts to source "post" the action
+# CRAYON_POST_BUILD_SKIP (modifable by included scripts) = If this is set, skip the next post script(s)
+#
+###########################################################################
 # exit if any command fails
 set -e
 
