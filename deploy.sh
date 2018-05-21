@@ -62,6 +62,10 @@ else
 		export CRAYON_CMD_DEPLOY_SUCCESS="false"
 	fi
 	echo "CRAYON_CMD_DEPLOY_SUCCESS is $CRAYON_CMD_DEPLOY_SUCCESS"
+
+        if [ "$CRAYON_CMD_DEPLOY_SUCCESS" = "false"]; then
+                exit 1;
+        fi
 	
 	echo "Sourcing CRAYON_POST_DEPLOY files..."
 	for h in "${CRAYON_POST_DEPLOY[@]}"; do
