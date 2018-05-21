@@ -18,6 +18,9 @@
 if [ -z "$JBAKE_GET_VERSION" ]; then
 	export JBAKE_GET_VERSION=2.5.0
 fi
+if [ -z "$JBAKE_DOWNLOAD_URL" ]; then
+	export JBAKE_DOWNLOAD_URL="https://dl.bintray.com/jbake/binary/jbake-${JBAKE_GET_VERSION}-bin.zip"
+fi
 #
 ###########################################################################
 # $CRAYON_ARCHITECT_DIR = the directory of the crayon-architect tools
@@ -34,8 +37,8 @@ if [ -z "$JBAKE_HOME" ]; then
 			echo "Removing old downloaded archive ${CRAYON_ARCHITECT_DIR}/cache/jbake/jbake-${JBAKE_GET_VERSION}.zip";
 			rm -f "${CRAYON_ARCHITECT_DIR}/cache/jbake/jbake-${JBAKE_GET_VERSION}.zip"
 		fi
-		echo "Downloading and extracting http://jbake.org/files/jbake-${JBAKE_GET_VERSION}-bin.zip...";
-		wget -O "${CRAYON_ARCHITECT_DIR}/cache/jbake/jbake-${JBAKE_GET_VERSION}.zip" "http://jbake.org/files/jbake-${JBAKE_GET_VERSION}-bin.zip"
+		echo "Downloading and extracting ${JBAKE_DOWNLOAD_URL}...";
+		wget -O "${CRAYON_ARCHITECT_DIR}/cache/jbake/jbake-${JBAKE_GET_VERSION}.zip" "${JBAKE_DOWNLOAD_URL}"
 		unzip -d "${CRAYON_ARCHITECT_DIR}/cache/jbake" "${CRAYON_ARCHITECT_DIR}/cache/jbake/jbake-${JBAKE_GET_VERSION}.zip"
 	fi
 	if [ ! -f "${CRAYON_ARCHITECT_DIR}/cache/jbake/jbake-${JBAKE_GET_VERSION}/bin/jbake" ]; then
