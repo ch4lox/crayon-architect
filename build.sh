@@ -80,7 +80,7 @@ fi
 
 echo Done.
 
-if [ "$CRAYON_CMD_BUILD_SUCCESS" = "false"]; then
+if [ "$CRAYON_CMD_BUILD_SUCCESS" = "false" ]; then
 	exit 1;
 fi
 
