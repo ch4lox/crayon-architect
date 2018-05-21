@@ -63,10 +63,6 @@ else
 	fi
 	echo "CRAYON_CMD_BUILD_SUCCESS is ${CRAYON_CMD_BUILD_SUCCESS}"
 	
-	if [ "$CRAYON_CMD_BUILD_SUCCESS" = "false"]; then
-		exit 1;
-	fi
-
 	echo "Sourcing CRAYON_POST_BUILD files..."
 	for h in "${CRAYON_POST_BUILD[@]}"; do
 		HELPER="${h}"
@@ -83,3 +79,8 @@ else
 fi
 
 echo Done.
+
+if [ "$CRAYON_CMD_BUILD_SUCCESS" = "false"]; then
+	exit 1;
+fi
+

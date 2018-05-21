@@ -62,10 +62,6 @@ else
 		export CRAYON_CMD_SERVE_SUCCESS="false"
 	fi
 	echo "CRAYON_CMD_SERVE_SUCCESS is $CRAYON_CMD_SERVE_SUCCESS"
-
-	if [ "$CRAYON_CMD_SERVE_SUCCESS" = "false"]; then
-                exit 1;
-        fi
 	
 	echo "Sourcing CRAYON_POST_SERVE files..."
 	for h in "${CRAYON_POST_SERVE[@]}"; do
@@ -83,3 +79,7 @@ else
 fi
 
 echo Done.
+if [ "$CRAYON_CMD_SERVE_SUCCESS" = "false"]; then
+	exit 1;
+fi
+

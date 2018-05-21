@@ -63,10 +63,6 @@ else
 	fi
 	echo "CRAYON_CMD_CLEAN_SUCCESS is $CRAYON_CMD_CLEAN_SUCCESS"
 
-        if [ "$CRAYON_CMD_CLEAN_SUCCESS" = "false"]; then
-                exit 1;
-        fi
-	
 	echo "Sourcing CRAYON_POST_CLEAN files..."
 	for h in "${CRAYON_POST_CLEAN[@]}"; do
 		HELPER="${h}"
@@ -83,3 +79,7 @@ else
 fi
 
 echo Done.
+if [ "$CRAYON_CMD_CLEAN_SUCCESS" = "false"]; then
+	exit 1;
+fi
+
