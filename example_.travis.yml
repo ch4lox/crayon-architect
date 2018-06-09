@@ -1,20 +1,15 @@
-dist: trusty
-language: c
-addons:
-  apt:
-    packages:
-    - oracle-java8-installer
-    - oracle-java8-set-default
+language: java
+jdk:
+  - openjdk8
 cache:
   directories:
     - crayon-architect/cache
-before_script:
-  - cd $TRAVIS_BUILD_DIR
-  - crayon-architect/clean.sh
-script:
-  - cd $TRAVIS_BUILD_DIR
-  - crayon-architect/build.sh
-after_success:
-  - cd $TRAVIS_BUILD_DIR
-  - crayon-architect/deploy.sh
+before_script: crayon-architect/clean.sh
+script: crayon-architect/build.sh
+deploy:
+  skip_cleanup: true
+  provider: script
+  on:
+    branch: master
+  script: crayon-architect/deploy.sh
 
