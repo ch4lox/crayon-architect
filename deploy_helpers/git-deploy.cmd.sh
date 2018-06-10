@@ -67,6 +67,6 @@ else
 	rm -rf "${TEMP_DIR}"
 	
 	echo "Nothing appears to have changed."
-	exit 1;
+	exit 0;
 fi
 
